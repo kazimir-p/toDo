@@ -1,20 +1,24 @@
-let one = document.getElementById('one');
+// const one = document.getElementById('one');
 
 
-let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+const todos = ['Get groceries', 'Wash car', 'Make dinner'];
 
-  todos.forEach(function(todoTitle) {
-    let element = document.createElement('div');
-    element.innerText = todoTitle;
-    one.appendChild(element);
-  });
+  render();
 
   function addTodo() {
-    let textbox = document.getElementById('todo-title');
-    let title = textbox.value;
+    const textbox = document.getElementById('todo-title');
+    const title = textbox.value;
     todos.push(title);
 
-    let div = document.createElement('div');
-    div.innerText = title;
-    one.appendChild(div);
+    render();
   }
+
+function render() {
+  document.getElementById('todo-list').innerHTML= '';
+  todos.forEach(function(todoTitle) {
+    const element = document.createElement('div');
+    element.innerText = todoTitle;
+    const todoList = document.getElementById('todo-list');
+    todoList.appendChild(element);
+  });
+}
